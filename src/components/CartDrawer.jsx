@@ -3,7 +3,10 @@ import { useStore } from '../store/useStore';
 import { mockDb } from '../data/mockDb';
 import { X, Cpu, ShoppingBag } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function CartDrawer({ isOpen, onClose }) {
+  const navigate = useNavigate();
   const cart = useStore((state) => state.cart);
   const removeFromCart = useStore((state) => state.removeFromCart);
   
@@ -92,7 +95,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                 <span className="text-3xl font-black text-electric">${total.toFixed(2)}</span>
               </div>
               
-              <button onClick={() => { onClose(); window.location.href = '/checkout'; }} disabled={cartItems.length === 0} className="w-full py-4 bg-electric disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-400 text-slate-900 font-bold text-lg rounded-xl transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]">
+              <button onClick={() => { onClose(); navigate('/checkout'); }} disabled={cartItems.length === 0} className="w-full py-4 bg-electric disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-400 text-slate-900 font-bold text-lg rounded-xl transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]">
                 Checkout Build
               </button>
             </div>

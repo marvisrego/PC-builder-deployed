@@ -4,6 +4,7 @@ import { mockDb } from '../data/mockDb';
 import ProductCard from '../components/ProductCard';
 import CartDrawer from '../components/CartDrawer';
 import Header from '../components/Header';
+import AIChatbot from '../components/AIChatbot';
 
 const categories = ['cpu', 'gpu', 'motherboard', 'ram', 'case'];
 
@@ -63,6 +64,7 @@ export default function Dashboard() {
       </main>
 
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <AIChatbot />
     </div>
   );
 }
